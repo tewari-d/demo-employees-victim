@@ -3,7 +3,7 @@ const {
 } = require("./employee-config");
 function validateAge(age) {
 
-    if (age < MINIMUM_EMPLOYEE_AGE.getMinimumAge) {
+    if (age < getMinimumAge()) {
         throw new Error("Employee must be at least 18 years old");
     }
 
