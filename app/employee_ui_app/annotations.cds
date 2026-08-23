@@ -1,1 +1,1 @@
-using EmployeeService as service from '../../srv/odata';
+using EmployeeService as service from '../../srv/employee-service';

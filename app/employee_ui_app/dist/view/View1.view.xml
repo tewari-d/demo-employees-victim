@@ -1,6 +1,34 @@
 <mvc:View controllerName="employeeuiapp.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
     <Page id="page" title="{i18n>title}">
+    <content>
+            <form:SimpleForm id="_IDGenSimpleForm1"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Employee Details">
+
+                <Label id="_IDGenLabel" text="Name" />
+                <Input id="nameInput" />
+
+                <Label id="_IDGenLabel1" text="Surname" />
+                <Input id="sirNameInput" />
+
+                <Label id="_IDGenLabel2" text="Age" />
+                <Input
+                    id="ageInput"
+                    type="Number" />
+
+                <Label id="_IDGenLabel3" text="Location" />
+                <Input id="locationInput" />
+
+                <Button id="_IDGenButton"
+                    text="Create Employee"
+                    type="Emphasized"
+                    press=".onCreateEmployee" />
+
+            </form:SimpleForm>
+        </content>
     </Page>
 </mvc:View>

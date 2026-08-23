@@ -73,19 +73,19 @@ modules:
             - Name: demo-employees-approuter_html_repo_host
               ServiceInstanceName: demo-employees-html5-service
               ServiceKeyName: demo-employees-repo-host-key
-              sap.cloud.service: demo-employees-approuter
+              sap.cloud.service: demo-employees
             - Authentication: OAuth2UserTokenExchange
               Name: demo-employees-approuter_auth
               ServiceInstanceName: demo-employees-auth
               ServiceKeyName: demo-employees-auth-key
-              sap.cloud.service: demo-employees-approuter
-          existing_destinations_policy: ignore
+              sap.cloud.service: demo-employees
+          existing_destinations_policy: update
     build-parameters:
       no-source: true
 
   - name: demo-employees-app-content
     type: com.sap.application.content
-    path: .
+    path: app/
     requires:
       - name: demo-employees-repo-host
         parameters:
@@ -108,6 +108,8 @@ modules:
         - npm install
         - npm run build:cf
       supported-platforms: []
+    requires: 
+      - name: demo-employees-repo-host
 
 resources:
   - name: demo-employees-auth
