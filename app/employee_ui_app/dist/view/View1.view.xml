@@ -1,34 +1,57 @@
 <mvc:View controllerName="employeeuiapp.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:form="sap.ui.layout.form">
+    xmlns:form="sap.ui.layout.form"
+    xmlns:smartTable="sap.ui.comp.smarttable">
     <Page id="page" title="{i18n>title}">
     <content>
-            <form:SimpleForm id="_IDGenSimpleForm1"
-                editable="true"
-                layout="ResponsiveGridLayout"
-                title="Employee Details">
+            <Panel id="createEmployeePanel"
+                headerText="Create Employee"
+                expandable="true"
+                expanded="false"
+                width="auto"
+                class="sapUiResponsiveMargin">
 
-                <Label id="_IDGenLabel" text="Name" />
-                <Input id="nameInput" />
+                <form:SimpleForm id="_IDGenSimpleForm1"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    title="Employee Details">
 
-                <Label id="_IDGenLabel1" text="Surname" />
-                <Input id="sirNameInput" />
+                    <Label id="_IDGenLabel" text="Name" />
+                    <Input id="nameInput" />
 
-                <Label id="_IDGenLabel2" text="Age" />
-                <Input
-                    id="ageInput"
-                    type="Number" />
+                    <Label id="_IDGenLabel1" text="Surname" />
+                    <Input id="sirNameInput" />
 
-                <Label id="_IDGenLabel3" text="Location" />
-                <Input id="locationInput" />
+                    <Label id="_IDGenLabel2" text="Age" />
+                    <Input
+                        id="ageInput"
+                        type="Number" />
 
-                <Button id="_IDGenButton"
-                    text="Create Employee"
-                    type="Emphasized"
-                    press=".onCreateEmployee" />
+                    <Label id="_IDGenLabel3" text="Location" />
+                    <Input id="locationInput" />
 
-            </form:SimpleForm>
+                    <Button id="_IDGenButton"
+                        text="Create Employee"
+                        type="Emphasized"
+                        press=".onCreateEmployee" />
+
+                </form:SimpleForm>
+            </Panel>
+
+            <!-- Columns come from the UI.LineItem annotation in annotations.cds.
+                 The controller assigns the OData V2 model, which SmartTable requires. -->
+            <smartTable:SmartTable
+                id="employeeSmartTable"
+                entitySet="Employee"
+                tableType="ResponsiveTable"
+                header="Employees"
+                showRowCount="true"
+                enableAutoBinding="true"
+                useVariantManagement="false"
+                useTablePersonalisation="true"
+                persistencyKey="employeeSmartTable"
+                class="sapUiResponsiveMargin" />
         </content>
     </Page>
 </mvc:View>

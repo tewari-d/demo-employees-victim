@@ -28,6 +28,14 @@
 					"annotations": [],
 					"odataVersion": "4.01"
 				}
+			},
+			"v2Service": {
+				"uri": "/odata/v2/employee/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "2.0"
+				}
 			}
 		}
 	},
@@ -53,7 +61,9 @@
 			"minUI5Version": "1.151.0",
 			"libs": {
 				"sap.m": {},
-				"sap.ui.core": {}
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ui.comp": {}
 			}
 		},
 		"contentDensities": {
@@ -77,6 +87,14 @@
 					"operationMode": "Server",
 					"autoExpandSelect": true,
 					"earlyRequests": true
+				}
+			},
+			"v2": {
+				"dataSource": "v2Service",
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline"
 				}
 			}
 		},
