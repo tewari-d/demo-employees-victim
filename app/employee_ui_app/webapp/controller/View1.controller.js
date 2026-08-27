@@ -7,6 +7,12 @@ sap.ui.define([
 
     return Controller.extend("employeeuiapp.controller.View1", {
         onInit() {
+            // SmartTable reads its columns from the UI.LineItem annotation, but
+            // sap.ui.comp only understands OData V2 metadata. Give it the V2
+            // model as its default model; the rest of the view stays on V4.
+            this.byId("employeeSmartTable").setModel(
+                this.getOwnerComponent().getModel("v2")
+            );
         },
         onCreateEmployee: function () {
             const oView = this.getView();
@@ -43,6 +49,9 @@ sap.ui.define([
                     oView.byId("sirNameInput").setValue("");
                     oView.byId("ageInput").setValue("");
                     oView.byId("locationInput").setValue("");
+
+                    // The list runs on the separate V2 model, so pull it again
+                    oView.byId("employeeSmartTable").rebindTable(true);
                 })
                 .catch(function (oError) {
                     MessageBox.error(
