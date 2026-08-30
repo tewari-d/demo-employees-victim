@@ -1,5 +1,5 @@
 const {
-    MINIMUM_EMPLOYEE_AGE
+    getMinimumAge
 } = require("./employee-config");
 function validateAge(age) {
 
