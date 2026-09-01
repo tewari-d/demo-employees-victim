@@ -1,0 +1,6 @@
+StatusCode,Description
+01,Open
+02,Partially Delivered
+03,Delivered
+04,Invoiced
+05,Closed
