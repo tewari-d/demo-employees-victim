@@ -97,6 +97,10 @@ modules:
             - employeeuiapp.zip
           name: employeeuiapp
           target-path: resources/
+        - artifacts:
+            - poapp.zip
+          name: poapp
+          target-path: resources/
 
   - name: employeeuiapp
     type: html5
@@ -109,6 +113,19 @@ modules:
         - npm run build:cf
       supported-platforms: []
     requires: 
+      - name: demo-employees-repo-host
+
+  - name: poapp
+    type: html5
+    path: app/po_ui_app
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+    requires:
       - name: demo-employees-repo-host
 
 resources:
