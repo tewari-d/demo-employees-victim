@@ -2,6 +2,7 @@ using { sap.demo.po as db } from '../db/po-schema';
 
 service PurchaseOrderService {
 
+    @odata.draft.enabled
     entity PurchaseOrders     as projection on db.PurchaseOrders;
     entity PurchaseOrderItems as projection on db.PurchaseOrderItems;
 

@@ -3,7 +3,7 @@ const { calculatePricing } = require("./po-pricing");
 
 module.exports = cds.service.impl(function () {
 
-    this.before("CREATE", "PurchaseOrders", async (req) => {
+    this.before("SAVE", "PurchaseOrders", async (req) => {
         calculatePricing(req.data);
     });
 
