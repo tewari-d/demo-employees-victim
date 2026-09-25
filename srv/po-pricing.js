@@ -9,7 +9,7 @@ const { resolveTaxRate } = require("./po-tax");
  */
 function calculatePricing(order) {
 
-    const rate = resolveTaxRate(order.CountryKey, order.ReverseCharge);
+    const rate = resolveTaxRate(order.CountryKey, order.ReverseCharge) || {};
     const taxPercentage = rate.percentage;
     const taxCode = rate.taxCode;
 
